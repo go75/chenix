@@ -1,5 +1,5 @@
-use core::panic::{PanicInfo, Location};
-use crate::{sbi::shutdown, println};
+use crate::{sbi::shutdown,println};
+use core::panic::PanicInfo;
 
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {

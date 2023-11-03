@@ -1,5 +1,6 @@
 #![no_main]
 #![no_std]
+#![feature(panic_info_message)]
 mod lang_items;
 mod sbi;
 
@@ -9,11 +10,11 @@ mod console;
 use core::arch::global_asm;
 global_asm!(include_str!("entry.asm"));
 
-#![no_mangle]
+#[no_mangle]
 pub fn chenix_main() {
     clean_bss();
     println!("Hello chenix!");
-    panic!("Shutdown machine!");
+    loop{};
 }
 
 fn clean_bss() {
